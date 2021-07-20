@@ -1,0 +1,27 @@
+name: main
+
+on: push
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        config:
+          - runs-on: ubuntu-20.04
+            node-version: '14.17.3'
+          - runs-on: windows-2019
+            node-version: '14.17.3'
+          - runs-on: macos-10.15
+            node-version: '14.17.3'
+
+    runs-on: ${{ matrix.config.runs-on }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.config.node-version }}
+
+    - run: npm install
+    - run: node main.js
