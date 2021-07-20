@@ -1,14 +1,16 @@
 'use strict';
 
+const path = require('path');
+
 async function main() {
-	console.log("resolve('.'):");
-	console.log(resolve('.'));
+	console.log("path.resolve('.'):");
+	console.log(path.resolve('.'));
 	console.log('');
-	console.log("resolve('./', 'file.txt'):");
-	console.log(resolve('./', 'file.txt'));
+	console.log("path.resolve('./', 'file.txt'):");
+	console.log(path.resolve('./', 'file.txt'));
 	console.log('');
-	console.log("resolve('../', 'file.txt'):");
-	console.log(resolve('../', 'file.txt'));
+	console.log("path.resolve('../', 'file.txt'):");
+	console.log(path.resolve('../', 'file.txt'));
 	console.log('');
 }
 main().catch(err => {
